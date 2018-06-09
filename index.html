@@ -3,17 +3,71 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Avengers Word Guess</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css"/>
     <script src="assets/javascript/game.js"></script>
 </head>
 <body>
 
-    <div class="scoreboard">
+    <header>
+        <!-- header at top of page -->
+        <h1>The Ultimate Avengers Guessing Game</h1>
+        <h2>Which Avengers Hero Am I Thinking Of?</h2>
+    </header>
+
+    <main>
+
+        <section>
+
+            <div class="rowCenter">
+
+                <button id="startButton" type="button">Start Game</button>
+                <button id="resetButton" type="button">Reset</button>
+
+            </div>
+
+            <div class="row">
+
+                <!-- container that holds the image that changes-->
+                <div id="avengers"><img src="assets/images/download.png"></div>
+
+                <!-- container that holds guessed letters and amount of incorrect guesses -->
+                <div class="mid">
+
+                    <p id="usedGuessNum">Guesses Remaining:</p>
+
+                    <p id="usedLetters">Letters Guessed:</p>
+
+                </div>
+                
+                <!-- container that holds the win-loss stats -->
+                <div id="scoreboard" class="end">
+
+                    <p>Wins:</p>
+
+                </div>
 
 
-    </div>
+            </div>
+
+            <div class="row">
+
+                <!-- container that holds the word being guessed -->
+                <div class="full">
+
+                    <p>Avenger I'm Thinking of:</p>
+                    <p id="guessWord"></p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer></footer>    
     
 </body>
 </html>

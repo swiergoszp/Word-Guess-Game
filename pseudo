@@ -1,0 +1,18 @@
+1. Make a library of words to choose from
+
+2. make a function to select a random word from that library
+
+3. have that word appear in dashes until letter guessed
+
+4. way for user to input their guess
+    a. limit the amount of user guesses
+    b. store incorrect guesses and make it so it doesnt count twice
+    c. reveal correct guesses on word
+
+5. message for end game
+    a. you win
+    b. you lose
+
+6. log end game result for user to see 
+
+7. make so process repeats

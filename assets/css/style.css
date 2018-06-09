@@ -1,0 +1,74 @@
+/* global attributes */
+body {
+    color: red;
+    background-color: white;
+}
+
+/* text in header box and its container */
+header {
+    color: red;
+    background-color: whitesmoke;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    width: 100%;
+}
+
+/* flex rows that hold page content */
+.row {
+    display: flex;
+    justify-content: space-between; 
+}
+
+/* flex rows that hold page content */
+.rowCenter {
+    display: flex;
+    justify-content: center; 
+}
+
+/* div with used guesses and used guess counter */
+.mid {
+    height: 200px;
+    width: 100%;
+    border: 2px dashed red;
+}
+
+/* div containing word being guessed */
+.full {
+    background-color: whitesmoke;
+    height: 200px;
+    width: 100%;
+    border: 2px dashed red;
+}
+
+/* div containing picture */
+#avengers {
+    width: 200px;
+    height: 200px;
+    border: 2px dashed red;
+}
+
+/* div with wins counter */
+#scoreboard {
+    height: 200px;
+    width: 100%;
+    border: 2px dashed red;
+}
+
+#letterGuess {
+    
+}
+
+#guessWord {
+    text-align: center;
+    font-size: 50px;
+}
+
+/* footer bar */
+footer {
+    text-align: center;
+    background-color: red;
+    padding: 20px;
+    margin-top: 135px;
+    position: relative;
+}
