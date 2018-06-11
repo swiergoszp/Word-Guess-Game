@@ -14,37 +14,32 @@
         <!-- header at top of page -->
         <h1>The Ultimate Avengers Guessing Game</h1>
         <h2>Which Avengers Hero Am I Thinking Of?</h2>
+        <h4>Press Any Button to Start</h4>
     </header>
 
     <main>
 
         <section>
 
-            <div class="rowCenter">
-
-                <button id="startButton" type="button">Start Game</button>
-                <button id="resetButton" type="button">Reset</button>
-
-            </div>
-
             <div class="row">
 
                 <!-- container that holds the image that changes-->
-                <div id="avengers"><img src="assets/images/download.png"></div>
+                <div><img id="avengers" src="assets/images/download.png"></div>
 
                 <!-- container that holds guessed letters and amount of incorrect guesses -->
                 <div class="mid">
 
-                    <p id="usedGuessNum">Guesses Remaining:</p>
+                    <p id="usedGuessNum">Guesses Remaining: 10</p>
 
                     <p id="usedLetters">Letters Guessed:</p>
 
                 </div>
                 
                 <!-- container that holds the win-loss stats -->
-                <div id="scoreboard" class="end">
+                <div class="end">
 
-                    <p>Wins:</p>
+                    <p id="wins">Wins: 0</p>
+                    <p id="losses">Losses: 0</p>
 
                 </div>
 
@@ -56,10 +51,37 @@
                 <!-- container that holds the word being guessed -->
                 <div class="full">
 
-                    <p>Avenger I'm Thinking of:</p>
                     <p id="guessWord"></p>
 
                 </div>
+
+            </div>
+
+            <div class="pics row">
+
+                <!-- <div class="pics"> -->
+
+                    <img src="assets/images/download-1.jpg">
+                    <img src="assets/images/download-2.jpg">
+                    <img src="assets/images/download-3.jpg">
+                    <img src="assets/images/download-4.jpg">
+                    <img src="assets/images/download-5.jpg">
+
+                <!-- </div> -->
+
+            </div>
+
+            <div class="pics row">
+
+                <!-- <div class="pics"> -->
+
+                    <img src="assets/images/download.jpg">
+                    <img src="assets/images/d64df15960577a08d4000aff67e41b6d.gif">
+                    <img src="assets/images/images-1.jpg">
+                    <img src="assets/images/images-2.jpg">
+                    <img src="assets/images//Nokia-3310-vs.-Hammer-of-Thor-Humor.jpg">
+
+                <!-- </div> -->
 
             </div>
 
@@ -67,7 +89,11 @@
 
     </main>
 
-    <footer></footer>    
+    <footer>
+
+        <p>Paul Swiergosz</p>
+
+    </footer>    
     
 </body>
 </html>
