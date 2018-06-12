@@ -34,8 +34,18 @@ window.onload = function() {
 
         if (remainingLetters === 0) {
             alert("You Win! The Correct Answer was " + randomWord.toUpperCase())
+
+            if (randomWord === "starlord"){
+                document.getElementById("avengers").src = "assets/images/" + randomWord + ".gif";
+            }
+            else {
+                document.getElementById("avengers").src = "assets/images/" + randomWord + ".jpg";
+            }
+
             winFunction();
-        }
+
+        } 
+
         if (numGuess > 0) {
 
             // if user guess is not found in either array listed then execute further steps
