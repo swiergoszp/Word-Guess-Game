@@ -1,78 +1,45 @@
-/* global attributes */
 body {
-    color: red;
-    background-color: gray;
-}
-
-/* text in header box and its container */
-header {
-    color: red;
-    background-color: whitesmoke;
-    border: 3px solid red;
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-style: italic;
-    width: 100%;
-    margin-bottom: 5px;
-}
-
-/* flex rows that hold page content */
-.row {
-    display: flex;
-    justify-content: space-between; 
-}
-
-/* div with used guesses and used guess counter */
-.mid {
-    height: 200px;
-    width: 100%;
-    border: 3px solid red;
-    background-color: whitesmoke;
-    margin: 0 5px 0 5px;
-}
-
-.end {
-    height: 200px;
-    width: 25%;
-    border: 3px solid red;
-    background-color: whitesmoke;
-}
-
-/* div containing word being guessed */
-.full {
-    height: 200px;
-    width: 100%;
-    border: 3px solid red;
-    background-color: whitesmoke;
-    margin-top: 5px;
-}
-
-.pics {
-    margin-top: 5px;
-}
-
-/* div containing picture */
-#avengers {
-    width: 200px;
-    height: 200px;
-    border: 3px solid red;
-}
-
-#usedLetters {
+    background-image: url(../images/images.jpg);
+    background-position: center;
+    background-size: cover;
+    color: #0878A4;
+    font-family: 'Oswald', sans-serif;
     font-size: 30px;
 }
 
-#guessWord {
+header {
+    font-style: italic;
     text-align: center;
-    font-size: 50px;
+    margin: 25px 0 225px 0;
 }
 
-/* footer bar */
-footer {
+/* divs containing pictures */
+.avengers {
+    height: auto;
+    width: 95%;
+}
+
+.avengers2 {
+    height: auto;
+    width: 115%;
+}
+
+/* div containing word being guessed */
+.guessbox {
+    height: 100px;
+    width: 100%;
     text-align: center;
-    background-color: red;
-    color: whitesmoke;
-    padding: 10px;
-    margin-top: 135px;
-    position: relative;
+    font-family: 'Bangers', cursive;
+}
+
+.guessWord {
+    font-size: 60px;
+}
+
+/* class used to center text in a few divs */
+.info-div {
+    text-align: center;
+    font-size: 60px;
+    height: auto;
+    width: 100%;
 }

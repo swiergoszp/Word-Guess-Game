@@ -1,137 +1,88 @@
-window.onload = function() {
-    
-    // creates variables for game info
-    var numGuess = 10;
-    var win = 1;
-    var loss = 1;
+var wordLibrary = ["thor", "ironman", "hawkeye", "starlord", "antman", "hulk" , 
+                    "nickfury" , "blackwidow" , "blackpanther" , "spiderman"];
+var answerArray = [];
+var userGuess = "";
+var win = 0;
+var loss = 0;
+var numGuess = 8;
+var wrongGuesses = [];
+var randomWord = "";
+var remainingLetters = randomWord.length;
 
-    // 1. creates array of words for the game
-    var wordLibrary = ["Thor", "IronMan", "Hawkeye", "StarLord", "AntMan", "Hulk" , 
-                    "NickFury" , "BlackWidow" , "BlackPanther" , "SpiderMan"];
+function startGame() {
+    randomWord = (wordLibrary[Math.floor(Math.random() * wordLibrary.length)]);
+    answerArray = randomWord.split("");
+    remainingLetters = randomWord.length;
+    numGuess = 8;
+    wrongGuesses = [];
+    answerArray = [];
 
-    // 2. creates rng for choosing word from the library
-    var randomWord = (wordLibrary[Math.floor(Math.random() * wordLibrary.length)]).toLowerCase();
-
-        console.log(randomWord);
-
-    // 3. popluates an array with dashes in the length of the chosen word
-    var answerArray = [];
-    for (var i = 0; i < randomWord.length; i++){
+    for (var i = 0; i < remainingLetters; i++){
         answerArray[i] = "_";
-    };
-        // prints array of dashes to doc
-        document.getElementById("guessWord").innerHTML = answerArray.join(" ");
-
-    // keeps track of amount of letters remaining (randomWord decreases as its guessed)
-    var remainingLetters = randomWord.length;
-    // empty array to store wrong guesses
-    var wrongGuesses = [];
-
-
-    // 4. key event for user letter guess
-    document.onkeyup = function() {
-        var userGuess = event.key.toLowerCase();
-
-        if (remainingLetters === 0) {
-            alert("You Win! The Correct Answer was " + randomWord.toUpperCase())
-
-            if (randomWord === "starlord"){
-                document.getElementById("avengers").src = "assets/images/" + randomWord + ".gif";
-            }
-            else {
-                document.getElementById("avengers").src = "assets/images/" + randomWord + ".jpg";
-            }
-
-            winFunction();
-
-        } 
-
-        if (numGuess > 0) {
-
-            // if user guess is not found in either array listed then execute further steps
-            if (answerArray.indexOf(userGuess) == -1 && 
-               (wrongGuesses.indexOf(userGuess)) == -1) {
-
-                // sorts guess into correct guess function
-                if (randomWord.indexOf(userGuess) > -1) {
-                    correctGuess(userGuess);
-                    this.remainingLetters--;
-
-                }
-                // sorts guess into wrong guess function
-                else {
-                    wrongGuess(userGuess);
-
-                }
-
-            };
-        }
-        else {
-            alert("Sorry! You Lose...");
-            lossFunction();
-        };
-
+        $(".guessWord").html(answerArray.join(" "));
     };
 
-        function correctGuess(ltrGuessed) {
+    $(".guessWord").html(answerArray.join(" ").toUpperCase());
+    $(".usedGuessNum").html(numGuess);
+    $(".wins").html(win);
+    $(".losses").html(loss);
 
-            for (var j = 0; j < randomWord.length; j++) {
-            
-                // if a letter from userGuess is in randomWord...
-                if (ltrGuessed === randomWord[j]) {
-                    //push into correctGuesses array
-                    answerArray[j] = ltrGuessed;
-                    // decrease amount of remaining letters
+};
+
+function guessCheck() {
+    // filters selection and eliminates repeat choices
+    if (answerArray.indexOf(userGuess) == -1 && (wrongGuesses.indexOf(userGuess)) == -1) {
+
+        // right guess option
+        if (randomWord.indexOf(userGuess) > -1) {
+            for (var i = 0; i < randomWord.length; i++) {
+                if (userGuess === randomWord[i]) {
+                    answerArray[i] = userGuess;
                     remainingLetters--;
                 };
-                // prints word being guessed to document
-                document.getElementById("guessWord").innerHTML = answerArray.join(" ").toUpperCase();
-            
             };
-
+            $(".guessWord").html(answerArray.join(" ").toUpperCase());
+        }
+            // wrong guess option
+            else {
+                wrongGuesses.push(userGuess);
+                numGuess--;
+                $(".usedGuessNum").html(numGuess);
+                $(".usedLetters").html(wrongGuesses.join(" ").toUpperCase());;
+            }
+    }
+        else {
+            alert("You already picked that letter")
         };
 
-        function wrongGuess(ltrGuessed) {
-
-            // displays wrong letter guesses in an array
-            wrongGuesses.push(ltrGuessed);
-            // decreases guesses left
-            numGuess--;
-            // prints number of guesses remaining to doc
-            document.getElementById("usedGuessNum").innerHTML=
-            "Guesses Remaining: " + numGuess; 
-            //prings wrong letters to doc
-            document.getElementById("usedLetters").innerHTML= 
-            "Letters Guessed: " + wrongGuesses.join(" ").toUpperCase();
-
-        };
-
-        // function run on win to reset game
-        function winFunction(){
-            document.getElementById("wins").innerHTML ="Wins: " + win++;
-            numGuess = 10;
-            wrongGuesses= [];
-            randomWord = (wordLibrary[Math.floor(Math.random() * wordLibrary.length)]).toLowerCase();
-            answerArray= [];
-            for (var i = 0; i < randomWord.length; i++){
-                answerArray[i] = "_";
-            };
-            remainingLetters = randomWord.length;
-
-        };
-
-        // function run on loss to reset game
-        function lossFunction(){
-            document.getElementById("losses").innerHTML ="Losses: " + loss++;
-            numGuess = 10;
-            wrongGuesses= [];
-            randomWord = (wordLibrary[Math.floor(Math.random() * wordLibrary.length)]).toLowerCase();
-            answerArray= [];
-            for (var i = 0; i < randomWord.length; i++){
-                answerArray[i] = "_";
-            };
-            remainingLetters = randomWord.length;
-
-        };
-        
 };
+
+// adds win and resets
+function roundComplete(){
+    if (answerArray.join("") === randomWord) {
+        $(".wins").html(win++);
+        alert("You Win! The Correct Answer was " + randomWord.toUpperCase());
+        if (randomWord === "starlord"){
+            $(".avengers").attr("src", "assets/images/" + randomWord + ".gif");
+        }
+            else {
+                $(".avengers").attr("src", "assets/images/" + randomWord + ".jpg");
+            }
+        startGame();
+    } 
+        else if (numGuess === 0) {
+            alert("Sorry! You Lose...");
+            $(".avengers").attr("src", "assets/images/thanos.jpg");
+            startGame();
+        }
+            else {
+                guessCheck();
+            };
+};
+
+startGame();
+
+$(document).keyup(function(event) {
+    userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+    roundComplete();
+});

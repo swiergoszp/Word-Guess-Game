@@ -5,95 +5,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Avengers Word Guess</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Oswald" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css"/>
-    <script src="assets/javascript/game.js"></script>
 </head>
-<body>
-
-    <header>
+<body class="container">
+    
+    <header class="row justify-content-center">
+        <!-- container that holds the image that changes-->
+        <div class="col-md-3">
+            <img class="avengers" src="assets/images/thanos.jpg">
+        </div>
         <!-- header at top of page -->
-        <h1>The Ultimate Avengers Guessing Game</h1>
-        <h2>Which Avengers Hero Am I Thinking Of?</h2>
-        <h4>Press Any Button to Start</h4>
+        <div class="col-md-6">
+            <h1>The Ultimate Avengers Guessing Game</h1>
+            <br>
+            <h4>Press Any Button to Start</h4>
+        </div>
+        <!-- container that holds the image that changes-->
+        <div class="col-md-3">
+            <img class="avengers2" src="assets/images/avengers.png">
+        </div>
     </header>
 
     <main>
 
-        <section>
+        <div class="row">
+            <!-- container that holds the word being guessed -->
+            <div class="col-md-12 guessbox">
+                <h1 class="guessWord"></h1>
+            </div>
+        </div>
 
-            <div class="row">
-
-                <!-- container that holds the image that changes-->
-                <div><img id="avengers" src="assets/images/download.png"></div>
-
-                <!-- container that holds guessed letters and amount of incorrect guesses -->
-                <div class="mid">
-
-                    <p id="usedGuessNum">Guesses Remaining: 10</p>
-
-                    <p id="usedLetters">Letters Guessed:</p>
-
-                </div>
-                
-                <!-- container that holds the win-loss stats -->
-                <div class="end">
-
-                    <p id="wins">Wins: 0</p>
-                    <p id="losses">Losses: 0</p>
-
-                </div>
-
-
+        <div class="row">
+            <!-- container that holds guessed letters and amount of incorrect guesses -->
+            <div class="col-md-5 info-div">
+                <h1>Letters Guessed</h1>
+                <p class="usedLetters"></p>
             </div>
 
-            <div class="row">
-
-                <!-- container that holds the word being guessed -->
-                <div class="full">
-
-                    <p id="guessWord"></p>
-
-                </div>
-
+            <div class="col-md-3">
+                <h1>Wins: <span class="wins"></span></h1>
+                <h1>Losses: <span class="losses"></span></h1>
             </div>
-
-            <div class="pics row">
-
-                <!-- <div class="pics"> -->
-
-                    <img src="assets/images/antman.jpg">
-                    <img src="assets/images/blackpanther.jpg">
-                    <img src="assets/images/blackwidow.jpg">
-                    <img src="assets/images/hawkeye.jpg">
-                    <img src="assets/images/hulk.jpg">
-
-                <!-- </div> -->
-
+        
+            <!-- container that holds the win-loss stats -->
+            <div class="col-md-4 info-div">
+                <h1>Guesses Remaining</h1>
+                <p class="usedGuessNum"></p>
             </div>
+        </div>
 
-            <div class="pics row">
+    </main>  
 
-                <!-- <div class="pics"> -->
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+<!-- Custom JS -->
+<script src="assets/javascript/game.js"></script>
 
-                    <img src="assets/images/ironman.jpg">
-                    <img src="assets/images/starlord.gif">
-                    <img src="assets/images/nickfury.jpg">
-                    <img src="assets/images/spiderman.jpg">
-                    <img src="assets/images/thor.jpg">
-
-                <!-- </div> -->
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <footer>
-
-        <p>Paul Swiergosz</p>
-
-    </footer>    
-    
 </body>
 </html>
